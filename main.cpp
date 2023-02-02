@@ -149,16 +149,16 @@ int main()
         if (car[0].y>240) offsetY = car[0].y-240;
 
 
-        float texwidth = sBackground.getTexture().getSize().x * 2;
-        float texheight = sBackground.getTexture().getSize().y * *2;
+        float texwidth = sBackground.getTexture()->getSize().x * 2;
+        float texheight = sBackground.getTexture()->getSize().y * 2;
 
-        if (car[0].x > texwidth - 320) offsetX = texwidth - 320;
-        if (car[0].y > texheight - 240) offsetY = texheight - 240;
+        if (car[0].x > texwidth - 320) offsetX = texwidth - 640;
+        if (car[0].y > texheight - 240) offsetY = texheight - 480;
 
         sBackground.setPosition(-offsetX,-offsetY);
 
-        std::cout << offsetX << endl;
-        std::cout << offsetY << endl;
+        std::cout << offsetX << std::endl;
+        std::cout << offsetY << std::endl;
 
         app.draw(sBackground);
         for(int i=0;i<N;i++)
