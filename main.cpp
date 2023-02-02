@@ -18,6 +18,8 @@ int points[num][2] = {300, 610,
     2560,3150,
     500, 3300};
 
+
+
 struct Car
 {
     float x,y,speed,angle; int n;
@@ -138,11 +140,26 @@ int main()
         }
         // Step 3: Render
         app.clear(Color::White);
+
+
+
         // TODO: Stay within the limit of the map.
         // TODO: Don't show white at bottom/right.
         if (car[0].x>320) offsetX = car[0].x-320;
         if (car[0].y>240) offsetY = car[0].y-240;
+
+
+        float texwidth = sBackground.getTexture().getSize().x * 2;
+        float texheight = sBackground.getTexture().getSize().y * *2;
+
+        if (car[0].x > texwidth - 320) offsetX = texwidth - 320;
+        if (car[0].y > texheight - 240) offsetY = texheight - 240;
+
         sBackground.setPosition(-offsetX,-offsetY);
+
+        std::cout << offsetX << endl;
+        std::cout << offsetY << endl;
+
         app.draw(sBackground);
         for(int i=0;i<N;i++)
         {
